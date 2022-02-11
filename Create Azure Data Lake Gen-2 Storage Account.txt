@@ -1,0 +1,24 @@
+Info
+###########
+- Can host datalake on azure ontop of datalake gen2 storage account
+- part of azure storage accounts
+- could be many different formats (aka data lake) (structured or unstructured) 
+- built for petabytes or terrabytes
+
+
+Steps
+###########################
+1) https://portal.azure.com/#home
+2) create resource
+3) storage account
+4) create resource group
+5) make unique name 
+6) locally redundant for cheapness
+7) go to advanced tab
+8) under data lake storage Gen2 click enable hierarchial namespace!!!!
+9) leave all other tabs blank 
+10) review and create
+11) get into resource
+12) click on container for blob or table and start uploading pictures or csv files or json files 
+13) can add directories and upload files to the directory
+14) 

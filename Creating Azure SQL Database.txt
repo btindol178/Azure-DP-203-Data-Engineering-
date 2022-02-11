@@ -1,0 +1,24 @@
+Steps 
+####################################
+1) https://portal.azure.com/#create/hub
+2) Click create resource
+3) search for SQL Database and hit create
+4) pick our resource group
+5) pick database name (appdb)
+6) create server name (btindolz1sf)
+7) create server user and pass (btindol178, SW...)
+8) pick locally redundant backup for now.. 
+9) click on configure database
+10) click on service tier and use basic (because demo make cheaper by dbu's)
+11) go to networkig click public endpoint 
+12) add curent client ip addres click yes (can access from current workspace (laptop from here))
+13) Leave security, additional and tags the same 
+14) review and create
+15) go to resource via 
+16) open sql server management studio
+17) copy server.name and paste it in servername
+18) login put in (btindol178) (what you did before)
+19) pass SW.. (what you did before)
+20) Can start creating database and tables 
+
+

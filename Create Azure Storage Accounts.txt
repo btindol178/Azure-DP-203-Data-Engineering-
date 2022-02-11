@@ -1,0 +1,13 @@
+Steps to creating storage accounts
+#######################################
+1) Go to https://portal.azure.com/#create/hub
+2) search in bar storage account --> create
+3) make resource group
+4) make unique storage account name
+5) choose region
+6) choose locally redundan storage (for cheapness for now)
+7) leave advanced, networking, protection and tags same
+8) review and create
+9) in bell icon on top right of header click go to resource or click in by resource group name
+10) 
+

@@ -1,0 +1,80 @@
+######################################################
+Steps to get GEN 2 Storage up and running 
+######################################################
+1) https://portal.azure.com/#home
+2) create resource
+3) storage account
+4) create resource group
+5) make unique name 
+6) locally redundant for cheapness
+7) go to advanced tab
+8) under data lake storage Gen2 click enable hierarchial namespace!!!!
+9) leave all other tabs blank 
+10) review and create
+11) get into resource
+12) click on container for blob or table and start uploading pictures or csv files or json files 
+13) can add directories and upload files to the directory
+
+
+#####################################################
+# Access keys- storage explorer
+#####################################################
+1) download tool azure storage explorer
+2) if you have employees who need to access storage account with in an account itself use storage explorer
+3) go to manage accounts
+4) subscription 
+5) azure
+6) sign in to azure
+7) test enviornment subscritpion
+8) can see all of storage accounts from here
+9) This tool alows you to explore data lake gen2 or storage accounts
+10) If you want user to only see particualr storage acount then go to storage account container
+11) go to access keys and copy
+12) go back to storage explorer
+13) manage account
+14) add account -- storage account
+15) account key paste in and copy account name from azure container and go back and paste it in
+16) connect
+17) then go back out to storage exploerer 
+
+
+#####################################################
+# Access Signatures - Authorizing azure data lake gen 2
+#####################################################
+1) Will use in synapse access signitures to authorize access to datalake gen2 storage account 
+2) go to data lake storage account
+3) go to shared access signitures
+4) can select or unselect allowed services
+5) under allowed resource types select them all
+6) allowed permissions just read and list
+7) dont give ability to delete version
+8) allow ipaddresses not for now 
+9) signing key for access signiture 
+10) generage SAS and connecting string then copy token
+11)go to storage explorer 
+12) go to storage account 
+13) add account
+14) stored access signiture
+15) go back to storage account and copy blob storage access account (bottom most url)
+16) Go back to storage explorer and see you dont have access to table and other things just blob
+
+#####################################################
+# Azure storage account redundancy
+#####################################################
+1) hot vs cool  
+2) if object is not accessed that frequently use cool (stored for at least 30 days)
+3) if not accessed very often at all hardly ever do archive ( stored for at least 180 days)
+4) hot is when accessed alot
+5) if blob i ncool and make hot earlier than 30 days get deletion fee
+6) if blob cool and changed to hot after 10 days still charged for extra 20 days of cool access
+7) go to storage and then access tier to do this
+8) rehidrate high means make go from cold to hot faster than standard
+
+######################################################
+# Life cycle policy
+#####################################################
+1) In storage account (life cycle managent)
+2) allows you to see when last access
+3) can change tier of many storage objects at once ( by makeing rules)
+4) for example if blob not accessed within 30 days move to cool 
+

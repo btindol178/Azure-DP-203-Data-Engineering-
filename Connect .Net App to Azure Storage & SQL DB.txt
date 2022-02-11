@@ -1,0 +1,55 @@
+#######################################
+Steps to creating storage accounts
+#######################################
+1) Go to https://portal.azure.com/#create/hub
+2) search in bar storage account --> create
+3) make resource group
+4) make unique storage account name
+5) choose region
+6) choose locally redundan storage (for cheapness for now)
+7) leave advanced, networking, protection and tags same
+8) review and create
+9) in bell icon on top right of header click go to resource or click in by resource group name
+
+####################################
+Steps to create SQL DB
+####################################
+1) https://portal.azure.com/#create/hub
+2) Click create resource
+3) search for SQL Database and hit create
+4) pick our resource group
+5) pick database name (appdb)
+6) create server name (btindolz1sf)
+7) create server user and pass (btindol178, SW...)
+8) pick locally redundant backup for now.. 
+9) click on configure database
+10) click on service tier and use basic (because demo make cheaper by dbu's)
+11) go to networkig click public endpoint 
+12) add curent client ip addres click yes (can access from current workspace (laptop from here))
+13) Leave security, additional and tags the same 
+14) review and create
+15) go to resource via 
+16) open sql server management studio
+17) copy server.name and paste it in servername
+18) login put in (btindol178) (what you did before)
+19) pass SW.. (what you did before)
+20) Can start creating database and tables 
+
+
+#######################################
+Steps to make .Net app
+#######################################
+1) install visual studio 2019
+2) open C:\Users\btindol\OneDrive - Stryker\Azure\Dot-Net-Apps\Sqlapp in visual studio 2019
+3) go to services folder then to course services.cs
+4) put the db server.name, databasename, user and pass on line 12:16
+5) create table in database ssms use the commands in "C:\Users\btindol\OneDrive - Stryker\Azure\Dot-Net-Apps\commands.sql"
+6) the visual studio app will now fetch that data
+7) upload images to azure storage account. 
+8) go to strage account get storage account name and put it at front of instert into for ssms input for table creating data in commands.sql
+9) in storage account go to container name it data 
+10) select blob anonymous read access only (made public assess so it is easier) 
+11) click contiainer and upload images to the container "C:\Users\btindol\OneDrive - Stryker\Azure\Dot-Net-Apps\AZ-204.jpg"
+12) now run insert statements in SSMS
+13) Go to .net app in visual studio and hit play(run) button
+14) should see list of imanges!
