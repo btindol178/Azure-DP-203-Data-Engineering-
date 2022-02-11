@@ -1,3 +1,0 @@
-# This is for azure data engineering dp203 certifification training
-###################################################################
-https://www.udemy.com/course/data-engineering-on-microsoft-azure/learn/lecture/27406296#overview
