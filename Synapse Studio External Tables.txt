@@ -1,0 +1,59 @@
+Steps
+#################
+1) in azure portal open up azure workspace
+2) scroll down and open up synapse studio
+3) click left pane click develop 
+4) click + symbol an then in drop down click sql script
+5) hide left pane 
+6) on right pane name script as external table 
+7) make sure connect to says built in (this means serverless pool)
+8) create database in scrip and run ((CREATE DATABASE [appdb]))
+9) with use database in top right dropdown connect to [appdb]
+10) now create a master key to encrypt a database scope credential to do this do then run
+	CREATE DATABASE SCOPED CREDENTIAL SasToken
+	WITH IDENTITY ='SHARED ACCESS SIGNATURE'
+	, SECRET = 'shared access signature goes here from datalake gen 2 storage accound (Sas Token by generage shared access signature)'
+11)  Then define external data source 
+	CREATE EXTERNAL DATA SOURCE log_data
+	WITH ( LOCATION = 'https://<your_data_lake_name>.dfs.core.windows.net/data',
+		CREDENTIAL = SasToken) 
+
+	#Note go get data lake storage account name to and put it after // and before .dfs 
+	# Note /data is the name of the container where files and folders are 
+
+12) Create external file format by doing this 
+	CREATE EXTERNAL FILE FORMAT TexFileFormat WITH(
+		FORMAT_TYPE = DELIMITEDTEXT,
+		FORMAT_OPTIONS(
+			FIELD_TERMINATOR =',',
+			FIRST_ROW =2))
+
+13) Here we define the external table 
+	CREATE EXTERNAL TABLE [logdata]
+(
+    [Id] [int] NULL,
+	[Correlationid] [varchar](200) 
+	[Operationname] [varchar](200) 
+	[Status] [varchar](100) 
+	[Eventcategory] [varchar](100) 
+	[Level] [varchar](100) 
+	[Time] [datetime] 
+	[Subscription] [varchar](200) 
+	[Eventinitiatedby] [varchar](1000) 
+	[Resourcetype] [varchar](1000) 
+	[Resourcegroup] [varchar](1000) 
+WITH (
+ LOCATION = '/Log.csv',
+    DATA_SOURCE = log_data,  
+    FILE_FORMAT = TextFileFormat
+)
+
+14) look at the data
+	SELECT * FROM [logdata]
+
+
+	SELECT [Operation name] , COUNT([Operation name]) as [Operation Count]
+	FROM [logdata]
+	GROUP BY [Operation name]
+	ORDER BY [Operation Count]
+	
