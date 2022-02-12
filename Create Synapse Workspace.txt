@@ -1,0 +1,16 @@
+Steps
+######################
+1) https://portal.azure.com/#home
+2) create resource
+3) search for synapse analytics
+4) create resource group
+5) create workspace name
+6) needs to have data lake gen2 account created
+7) Make new file system
+8) leave assignment as is
+9) in security tab put server admin login user and pass and keep allow piplines as ok
+10) leave everything as default in networking tab, and tags 
+11) review and create
+12) go to resorce group and open synapse workspace
+13) Your done!!
+
