@@ -1,0 +1,14 @@
+Steps (External Tables for ad-hoc) (sql pool is for persist tables)
+###########################################################################
+1) Go to resources 
+2) Go to synapse workspace
+3) go to synapse studio
+4) go back to synapse workspace 
+5) create new dedicated sql pool
+6) also go under sql pools
+7) pick lowest performance level for now
+8) hit create
+9) head to resource
+10) in synapse studio refresh database section to see new pool 
+
+
